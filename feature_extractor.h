@@ -1,7 +1,6 @@
 #pragma once
 
 #include "frame.h"
-#include "fft.h"
 
 class feature_extractor final
 {
