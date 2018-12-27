@@ -29,6 +29,8 @@ public:
 private:
 	static std::vector<frame> split_into_frames(unsigned int sample_rate, const std::vector<double>& samples, size_t frame_size);
 
-	std::vector<frame> frames_;
-	std::vector<feature_extractor> extractors_;
+	std::vector<std::pair<frame, feature_extractor>> frame_features_;
+
+	//std::vector<frame> frames_;
+	//std::vector<feature_extractor> extractors_;
 };

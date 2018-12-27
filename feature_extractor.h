@@ -1,6 +1,7 @@
 #pragma once
 
 #include "frame.h"
+#include "fft.h"
 
 class feature_extractor final
 {
@@ -24,6 +25,7 @@ public:
 private:
 	std::vector<double> power_spectrum_;
 	frame&              frame_;
+	fft::fft_performer  fft_performer_;
 
 	/**
 	 * \brief Wrapper to unload constructor code
