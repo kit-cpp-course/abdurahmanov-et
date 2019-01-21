@@ -6,16 +6,22 @@ void fft::cooley_tukey_fft::execute(std::vector<double>& re, std::vector<double>
                                     const std::vector<double>& sin_table)
 {
 	const auto n = re.size();
-	if (n != im.size())
-		throw std::invalid_argument("Mismatched lengths");
-	auto levels = 0;
-	for (auto temp = n; temp > 1U; temp >>= 1)
-		levels++;
-	if (static_cast<size_t>(1U) << levels != n)
-		throw std::domain_error("Length is not a power of 2");
+    if (n != im.size())
+    {
+        throw std::invalid_argument("Mismatched lengths");
+    }
+    auto levels = 0;
+    for (auto temp = n; temp > 1U; temp >>= 1)
+    {
+        levels++;
+    }
+    if (static_cast<size_t>(1U) << levels != n)
+    {
+        throw std::domain_error("Length is not a power of 2");
+    }
 
-	for (size_t i = 0; i < n; i++)
-	{
+    for (size_t i = 0; i < n; i++)
+    {
 		const auto j = bit_reverse(i, levels);
 		if (j > i)
 		{
@@ -24,7 +30,7 @@ void fft::cooley_tukey_fft::execute(std::vector<double>& re, std::vector<double>
 		}
 	}
 
-	for (size_t size = 2; size <= n; size *= 2)
+    for (size_t size = 2; size <= n; size *= 2)
 	{
 		const auto halfsize = size / 2;
 		const auto tablestep = n / size;
@@ -41,16 +47,17 @@ void fft::cooley_tukey_fft::execute(std::vector<double>& re, std::vector<double>
 				im[j] += tpim;
 			}
 		}
-		if (size == n)
-			break;
+		if (size == n) break;
 	}
 }
 
 size_t fft::cooley_tukey_fft::bit_reverse(size_t x, int n)
 {
 	size_t result = 0;
-	for (auto i = 0; i < n; ++i, x >>= 1)
-		result = result << 1 | x & 1U;
+    for (auto i = 0; i < n; ++i, x >>= 1)
+    {
+        result = result << 1 | x & 1U;
+    }
 	return result;
 }
 
