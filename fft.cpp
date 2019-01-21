@@ -5,7 +5,7 @@ void fft::cooley_tukey_fft::execute(std::vector<double>& re, std::vector<double>
                                     const std::vector<double>& cos_table,
                                     const std::vector<double>& sin_table)
 {
-	const auto n = re.size();
+    const auto n = re.size();
     if (n != im.size())
     {
         throw std::invalid_argument("Mismatched lengths");

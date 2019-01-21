@@ -4,7 +4,7 @@
 #include "fft.h"
 
 /**
- * \brief Implements spectral audio feature extractor with based of fft
+ * \brief Implements spectral audio feature extractor based of fft
  */
 class feature_extractor final
 {
