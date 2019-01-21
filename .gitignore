@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# VS Project Files
+*.user
+*.filters
+*.vcxproj
+
+# Test data
+*.txt
